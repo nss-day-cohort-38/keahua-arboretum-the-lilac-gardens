@@ -29,25 +29,30 @@ def cultivate_plant(arboretum):
 
     num = 1
 
-    for index, mountain in enumerate(arboretum.mountains):
-        print(f'{num}. Mountain ({len(mountain.plants)} plants)')
-        biome[num] = arboretum.mountains[index]
-        num += 1
+    for location in plant.hospitable_locations:
+        if location == "Mountain":
+            for index, mountain in enumerate(arboretum.mountains):
+                print(f'{num}. Mountain ({len(mountain.plants)} plants)')
+                biome[num] = arboretum.mountains[index]
+                num += 1
 
-    for index, swamp in enumerate(arboretum.swamps):
-        print(f'{num}. Swamp ({len(swamp.plants)} plants)')
-        biome[num] = arboretum.swamps[index]
-        num += 1
-    
-    for index, grassland in enumerate(arboretum.grasslands):
-        print(f'{num}. Grassland ({len(grassland.plants)} plants)')
-        biome[num] = arboretum.grasslands[index]
-        num += 1
-    
-    for index, forest in enumerate(arboretum.forests):
-        print(f'{num}. Forest ({len(forest.plants)} plants)')
-        biome[num] = arboretum.forests[index]
-        num += 1
+        if location == "Swamp":
+            for index, swamp in enumerate(arboretum.swamps):
+                print(f'{num}. Swamp ({len(swamp.plants)} plants)')
+                biome[num] = arboretum.swamps[index]
+                num += 1
+
+        if location == "Grassland":
+            for index, grassland in enumerate(arboretum.grasslands):
+                print(f'{num}. Grassland ({len(grassland.plants)} plants)')
+                biome[num] = arboretum.grasslands[index]
+                num += 1
+
+        if location == "Forest":
+            for index, forest in enumerate(arboretum.forests):
+                print(f'{num}. Forest ({len(forest.plants)} plants)')
+                biome[num] = arboretum.forests[index]
+                num += 1
     
     
     print()
