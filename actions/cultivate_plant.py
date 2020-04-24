@@ -94,18 +94,28 @@ def cultivate_plant(arboretum):
                     choice_fn(env)
             except ValueError:
                 print()
-                error_message = input("Nope. Pick a number, stupid")
+                error_message = input("Please select a valid option. Press any key to return to the main menu...")
             except KeyError:
-                pass
+                print()
+                error_message = input("Key not found. Press any key to return to the main menu...")
             except AttributeError:
-                pass
+                print()
+                error_message = input("This animal cannot live here. Press any key to return to the main menu...")       
+            except IndexError:
+                print()
+                error_message = input("That isn't an option. Press any key to return to the main menu... ")
         
         choice_fn(env)
     except ValueError:
         print()
-        error_message = input("Nope. Pick a number, stupid")
+        error_message = input("Please select a valid option. Press any key to return to the main menu...")
     except KeyError:
-        pass
+        print()
+        error_message = input("Key not found. Press any key to return to the main menu...")
     except AttributeError:
-        pass
+        print()
+        error_message = input("Error. Press any key to return to the main menu...")       
+    except IndexError:
+        print()
+        error_message = input("That isn't an option. Press any key to return to the main menu... ")
     
