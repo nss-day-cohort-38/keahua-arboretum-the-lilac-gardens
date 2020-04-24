@@ -24,6 +24,7 @@ def cultivate_plant(arboretum):
     if choice == "4":
         plant = BlueJadeVine()
 
+
     biome = dict()
 
     num = 1
@@ -65,26 +66,31 @@ def cultivate_plant(arboretum):
                     print("**** Please choose another one ****")
                     print()
                     num = 1
-
-                    for index, mountain in enumerate(arboretum.mountains):
-                        print(f'{num}. Mountain ({len(mountain.plants)} plants)')
-                        biome[num] = arboretum.mountains[index]
-                        num += 1
-
-                    for index, swamp in enumerate(arboretum.swamps):
-                        print(f'{num}. Swamp ({len(swamp.plants)} plants)')
-                        biome[num] = arboretum.swamps[index]
-                        num += 1
                     
-                    for index, grassland in enumerate(arboretum.grasslands):
-                        print(f'{num}. Grassland ({len(grassland.plants)} plants)')
-                        biome[num] = arboretum.grasslands[index]
-                        num += 1
+                    for location in plant.hospitable_locations:
+                        if location == "Mountain":
+                            for index, mountain in enumerate(arboretum.mountains):
+                                print(f'{num}. Mountain ({len(mountain.plants)} plants)')
+                                biome[num] = arboretum.mountains[index]
+                                num += 1
                     
-                    for index, forest in enumerate(arboretum.forests):
-                        print(f'{num}. Forest ({len(forest.plants)} plants)')
-                        biome[num] = arboretum.forests[index]
-                        num += 1
+                        if location == "Swamp":
+                            for index, swamp in enumerate(arboretum.swamps):
+                                print(f'{num}. Swamp ({len(swamp.plants)} plants)')
+                                biome[num] = arboretum.swamps[index]
+                                num += 1
+                    
+                        if location == "Grassland":
+                            for index, grassland in enumerate(arboretum.grasslands):
+                                print(f'{num}. Grassland ({len(grassland.plants)} plants)')
+                                biome[num] = arboretum.grasslands[index]
+                                num += 1
+                    
+                        if location == "Forest":
+                            for index, forest in enumerate(arboretum.forests):
+                                print(f'{num}. Forest ({len(forest.plants)} plants)')
+                                biome[num] = arboretum.forests[index]
+                                num += 1
                     
                     
                     print()
@@ -100,7 +106,7 @@ def cultivate_plant(arboretum):
                 error_message = input("Key not found. Press any key to return to the main menu...")
             except AttributeError:
                 print()
-                error_message = input("This animal cannot live here. Press any key to return to the main menu...")       
+                error_message = input("This plant cannot live here. Press any key to return to the main menu...")       
             except IndexError:
                 print()
                 error_message = input("That isn't an option. Press any key to return to the main menu... ")
